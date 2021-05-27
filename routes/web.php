@@ -15,4 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home.home');
+})->name("dashboard");
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', "DashboardController@index");
 });
+
+Route::resource('about', "AboutController");
