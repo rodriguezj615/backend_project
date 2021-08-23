@@ -8,7 +8,6 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        $title = "prueba";
-        return view("home.home", $title);
+        return view("home.home");
     }
 }

@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.home');
-})->name("dashboard");
-
-Route::prefix('dashboard')->group(function () {
-    Route::get('/', "DashboardController@index");
-});
+Route::get('/', "DashboardController@index")->name("dashboard");
 
 Route::resource('about', "AboutController");
+
+Route::prefix('about')->group(function (){
+    Route::post('search', "AboutController@search")->name("about.search");
+});
